@@ -1,6 +1,6 @@
 package main;
 
-public class Employee {
+public class Employee extends AbstractAccountActions {
 
 	// Fields (public default)
 	private String firstName;
@@ -10,9 +10,10 @@ public class Employee {
 //	protected 
 //	public
 //	private
-	
+	private float totalAmount;
+
 	public Employee() {
-		
+
 	}
 
 	public Employee(String firstName, String lastName, long employeeId, String jobTitle) {
@@ -82,5 +83,16 @@ public class Employee {
 	}
 
 	// other methods
+	@Override
+	float withdraw(int amount, int withdrawAmount) {
+		this.totalAmount = amount - withdrawAmount;
+		return this.totalAmount;
+	}
+
+	@Override
+	float deposit(int amount, int depositAmount) {
+		this.totalAmount = amount + depositAmount;
+		return 0;
+	}
 
 }
