@@ -2,6 +2,6 @@ package libraryUsers;
 
 public interface LibraryUser {
 	boolean registerAccount();
-	boolean requestBook();
+	boolean requestBook() throws ExceptionAgeRestriction;
 
 }

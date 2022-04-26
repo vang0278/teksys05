@@ -9,25 +9,45 @@ public class LibraryInterfaceDemo {
 		System.out.println("kids with IF");
 		for (KidUser user : kids) {
 			if (user.registerAccount())
-				user.requestBook();
+				try {
+					user.requestBook();
+				} catch (ExceptionAgeRestriction e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		System.out.println("kids ALL");
 		for (KidUser user : kids) {
 			user.registerAccount();
-			user.requestBook();
+			try {
+				user.requestBook();
+			} catch (ExceptionAgeRestriction e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		System.out.println("adults with IF");
 		for (AdultUser user : adults) {
 			if (user.registerAccount())
-				user.requestBook();
+				try {
+					user.requestBook();
+				} catch (ExceptionAgeRestriction e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 
 		System.out.println("adults ALL");
 		for (AdultUser user : adults) {
 			user.registerAccount();
-			user.requestBook();
+			try {
+				user.requestBook();
+			} catch (ExceptionAgeRestriction e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}

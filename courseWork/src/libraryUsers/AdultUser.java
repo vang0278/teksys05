@@ -38,14 +38,16 @@ public class AdultUser implements LibraryUser {
 	}
 
 	@Override
-	public boolean requestBook() {
+	public boolean requestBook() throws ExceptionAgeRestriction {
 		if (this.bookType.compareToIgnoreCase("Fiction") == 0) {
 			System.out.println("Book Issued successfully, please return the book within 7 days");
 			return true;
-		} else
-			System.out.println("Oops, you are allowed to take only adult Fiction books");
+		} else {
+//			System.out.println("Oops, you are allowed to take only adult Fiction books");
+			throw new ExceptionAgeRestriction("Oops, you are allowed to take only adult Fiction books");
+		}
 
-		return false;
+//		return false;
 	}
 
 }

@@ -38,14 +38,16 @@ public class KidUser implements LibraryUser {
 	}
 
 	@Override
-	public boolean requestBook() {
+	public boolean requestBook() throws ExceptionAgeRestriction {
 		if (this.bookType.compareToIgnoreCase("Kids") == 0) {
 			System.out.println("Book Issued successfully, please return the book within 10 days");
 			return true;
-		} else
-			System.out.println("Oops, you are allowed to take only kids books");
+		} else {
+//			System.out.println("Oops, you are allowed to take only kids books");
+			throw new ExceptionAgeRestriction("Oops, you are allowed to take only kids books");
+		}
 
-		return false;
+//		return false;
 	}
 
 }
