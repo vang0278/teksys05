@@ -12,7 +12,8 @@ public class Door {
 
 	public Key key() {
 //		return (Key) this.key.clone();
-		return key;
+//		return key;
+		return new Key(key);
 	}
 
 	public boolean hasKey() {
