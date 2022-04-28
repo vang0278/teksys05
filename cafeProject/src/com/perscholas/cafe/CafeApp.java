@@ -1,13 +1,13 @@
-package cafeProjectcom.perscholas.cafe;
+package com.perscholas.cafe;
 
 import java.util.Scanner;
 
 public class CafeApp {
 
 	public static void main(String[] args) {
-		Product coffee = new Product("Coffee", 1.00, "Black coffee");
-		Product espresso = new Product("espresso", 1.99, "espresso coffee");
-		Product cuppuccino = new Product("cuppuccino", 2.99, "cuppuccino coffee");
+		Product coffee = new Coffee("Coffee", 1.00, "Black coffee", false, false);
+		Product espresso = new Espresso("espresso", 1.99, "espresso coffee", true, true);
+		Product cuppuccino = new Cuppuccino("cuppuccino", 2.99, "cuppuccino coffee", true, false);
 
 		Scanner userInput = new Scanner(System.in);
 

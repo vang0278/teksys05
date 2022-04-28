@@ -1,6 +1,6 @@
-package cafeProjectcom.perscholas.cafe;
+package com.perscholas.cafe;
 
-public class Product {
+public abstract class Product {
 	private String name;
 	private double price;
 	private String description;
@@ -48,8 +48,5 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	public double calculateProductTotal() {
-		return quantity * price;
-
-	}
+	public abstract double calculateProductTotal();
 }
