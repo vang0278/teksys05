@@ -45,8 +45,23 @@ public abstract class Product {
 	}
 
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+		int amount = quantity;
+		int max = 99;
+		int min = 0;
+		amount = (max < amount) ? max : amount;
+		amount = (amount < min) ? min : amount;
+
+		this.quantity = amount;
 	}
 
 	public abstract double calculateProductTotal();
+
+	public abstract String addOptions(int optionNumber);// give available option changes
+
+	public abstract String printOptions();// give summary of selected options
+
+	// similar to clone (without using cloneable)
+	// we need actual copies for a store
+	public abstract Product copy();
+
 }

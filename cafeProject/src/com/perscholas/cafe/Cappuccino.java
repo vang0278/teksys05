@@ -2,72 +2,88 @@ package com.perscholas.cafe;
 
 import java.util.StringJoiner;
 
-public class Coffee extends Product {
+public class Cappuccino extends Product {
 
-	private boolean hasMilk;
-	private boolean hasSugar;
+	private boolean hasPeppermint;
+	private boolean hasWhippedCream;
 
-	public Coffee() {
+	public Cappuccino() {
 		super();
-		this.hasMilk = false;
-		this.hasSugar = false;
+		this.hasPeppermint = false;
+		this.hasWhippedCream = false;
 	}
 
-	public Coffee(Coffee c) {
-		this(c.getName(), c.getPrice(), c.getDescription(), c.hasMilk, c.hasSugar);
+	public Cappuccino(Cappuccino c) {
+		this(c.getName(), c.getPrice(), c.getDescription(), c.hasPeppermint, c.hasWhippedCream);
 	}
 
-	public Coffee(String name, double price, String description, boolean hasMilk, boolean hasSugar) {
+	public Cappuccino(String name, double price, String description, boolean hasPeppermint, boolean hasWhippedCream) {
 		super(name, price, description);
-		this.hasMilk = hasMilk;
-		this.hasSugar = hasSugar;
+		this.hasPeppermint = hasPeppermint;
+		this.hasWhippedCream = hasWhippedCream;
 	}
 
-	public Coffee(String name, double price, String description) {
+	public Cappuccino(String name, double price, String description) {
 		this(name, price, description, false, false);
 	}
 
-	public boolean isHasMilk() {
-		return hasMilk;
+	public boolean hasPeppermint() {
+		return hasPeppermint;
 	}
 
-	public void setHasMilk(boolean hasMilk) {
-		this.hasMilk = hasMilk;
+	public void addPeppermint() {
+		this.hasPeppermint = true;
 	}
 
-	public boolean isHasSugar() {
-		return hasSugar;
+	public void removePeppermint() {
+		this.hasPeppermint = false;
 	}
 
-	public void setHasSugar(boolean hasSugar) {
-		this.hasSugar = hasSugar;
+	public boolean hasWhippedCream() {
+		return hasWhippedCream;
+	}
+
+	public void addWhippedCream() {
+		this.hasWhippedCream = true;
+	}
+
+	public void removeWhippedCream() {
+		this.hasWhippedCream = false;
 	}
 
 	@Override
 	public double calculateProductTotal() {
-		// TODO Auto-generated method stub
-		return this.getPrice() * this.getQuantity();
+		double pricePerItem = this.getPrice();
+		if (hasPeppermint) {
+			pricePerItem += 2;
+		}
+		if (hasWhippedCream) {
+			pricePerItem += 1;
+		}
+		double total = this.getQuantity() * pricePerItem;
+		return total;
+
 	}
 
 	@Override
 	public String addOptions(int optionNumber) {
 		String action = "";
 
-		String item1 = "Milk";
-		boolean bool1 = hasMilk;
-		String item2 = "Sugar";
-		boolean bool2 = hasSugar;
+		String item1 = "Peppermint";
+		boolean bool1 = hasPeppermint;
+		String item2 = "Whipped Cream";
+		boolean bool2 = hasWhippedCream;
 
 		String action1 = "" + ((!bool1) ? "Added" : "Removed") + " " + item1;
 		String action2 = "" + ((!bool2) ? "Added" : "Removed") + " " + item2;
 
 		switch (optionNumber) {
 		case 1:
-			this.hasMilk = !this.hasMilk;
+			this.hasPeppermint = !this.hasPeppermint;
 			action = action1;
 			break;
 		case 2:
-			this.hasSugar = !this.hasSugar;
+			this.hasWhippedCream = !this.hasWhippedCream;
 			action = action2;
 			break;
 		case 3:
@@ -91,15 +107,15 @@ public class Coffee extends Product {
 		String options = "";
 		options += this.toString();
 		options += "Would you like ";
-		options += "milk or sugar ";
+		options += String.format("peppermint (%.2f) or whipped cream (%.2f) ", 2.0, 1.0);
 		options += "with your ";
 		options += this.getName();
 		options += "?";
 
-		String item1 = "Milk";
-		boolean bool1 = hasMilk;
-		String item2 = "Sugar";
-		boolean bool2 = hasSugar;
+		String item1 = "Peppermint";
+		boolean bool1 = hasPeppermint;
+		String item2 = "Whipped Cream";
+		boolean bool2 = hasWhippedCream;
 
 		String option1 = "1: " + ((!bool1) ? "Add" : "Remove") + " " + item1;
 		String option2 = "2: " + ((!bool2) ? "Add" : "Remove") + " " + item2;
@@ -116,13 +132,13 @@ public class Coffee extends Product {
 
 	@Override
 	public Product copy() {
-		return new Coffee(this);
+		return new Cappuccino(this);
 	}
 
 	@Override
 	public String toString() {
-		String option1 = "Milk: " + ((!hasMilk) ? "No" : "Yes");
-		String option2 = "Sugar: " + ((!hasSugar) ? "No" : "Yes");
+		String option1 = "Peppermint: " + ((!hasPeppermint) ? "No" : "Yes (Add $2)");
+		String option2 = "Whipped Cream: " + ((!hasWhippedCream) ? "No" : "Yes (Add $1)");
 
 		int pad1 = (option1.length() / 8) + 1;
 		pad1 *= 8;
@@ -137,6 +153,7 @@ public class Coffee extends Product {
 		String line2 = String.format(fmt, "", option1, option2);
 
 		return line1 + line2;
+
 	}
 
 }
