@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <h1>Register Page</h1>
+  </header>
+  <body>
+    <div>
+      <form>
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          type="text"
+          name="firstName"
+          placeholder="Enter Your First Name"
+          required
+        />
+
+        <br />
+        <label for="lastName">Last Name</label>
+        <input
+          id="lasstName"
+          type="text"
+          name="lastName"
+          placeholder="Enter Your Last Name"
+          required
+        />
+
+        <br />
+        <lablel for="email">Email</lablel>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+        />
+        <br />
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Enter Your Password"
+          required
+        />
+
+        <br />
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Your Password"
+          required
+        />
+
+        <br />
+        <label>
+          Gender
+          <input id="female" type="radio" name="gender" />
+          <label for="female">Female</label>
+          <input id="male" type="radio" name="gender" />
+          <label for="male">Male</label>
+        </label>
+
+        <br />
+        <label>
+          Habits
+          <input id="sports" type="checkbox" name="sports" />
+          <label for="sports">You like sports</label>
+
+          <input id="eat" type="checkbox" name="eat" />
+          <label for="eat">You like to eat</label>
+
+          <input id="sleep" type="checkbox" name="sleep" />
+          <label for="sleep">You like to sleep</label>
+        </label>
+
+        <br />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </body>
+</html>

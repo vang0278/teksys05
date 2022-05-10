@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro to html css</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- <ol></ol> -->
+        <ul>
+          <li><a target="_blank" href="https://google.com/">Google</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a title="Page" href="#">About</a></li>
+          <li>Contact</li>
+          <li>blog</li>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="calculator.html">calculator</a></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="aboutPage" class="about_header">
+      <h1>About Page</h1>
+      <strong>by: My Name</strong>
+    </div>
+
+    <div>
+      <div><h3>Bio</h3></div>
+
+      <p><strong>by: My Name</strong> This is the paragraph.</p>
+
+      <span>For more info click here!</span>
+    </div>
+
+    <div>
+      <img
+        src="https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?fit=crop&format=jpg&crop=4560,2565,x790,y784,safe"
+        width="400px"
+        height="400px"
+      />
+    </div>
+
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Erik</td>
+        <td>Taylor</td>
+        <td>21</td>
+      </tr>
+      <tr>
+        <td>Table cell 1</td>
+        <td>Table cell 2</td>
+        <td>Table cell 3</td>
+      </tr>
+    </table>
+
+    <div>
+      <form>
+        <br />
+        <label for="fullName">Full name</label>
+        <input id="fullName" type="text" name="Name" required />
+
+        <br />
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+        <br />
+        <label for="email">Email</label>
+        <input id="email" type="checkbox" name="email" required />
+        <br />
+        <label for="email">Email</label>
+        <input id="email" type="button" name="email" required />
+        <button>button</button>
+        <br />
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date" name="dob" required />
+      </form>
+    </div>
+  </body>
+</html>
